@@ -8,6 +8,12 @@ def readeblecontent(input_name):
     with open(input_name, "r") as txt:
         return txt.read()
 
+def decrypt_chunk(chunk, mapping):
+    for key, value in mapping.items():
+        if chunk == value:
+            return key
+    return ""
+
 def getperm(l, key):
     randomseed = int(key["seed"])
 
