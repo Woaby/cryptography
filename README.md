@@ -18,7 +18,7 @@ After this, the program concatenates these modified strings, resulting in:
 RGahTfSUASDdsffeBsdrAdrEBsdrAdrEtSdcwASa
 ```
 
-When thats done, an additional layer of randomization is applied using a randomly generated seed. the seed formula is all ASCII values + user input. this process produces the final output:
+When thats done, another layer of randomization is applied using a randomly generated seed. the seed formula is all ASCII values + random genererated seed fron the key. this process produces the final output:
 
 ```
 cAEaadrAtddewAfrDhSfBsfdSRSrsdsrEUSATBdG
