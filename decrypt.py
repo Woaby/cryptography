@@ -1,11 +1,4 @@
 import data.utils as tool
-import json
-
-with open("key.json", "r") as json_file:
-    data = json.load(json_file)
-
-with open("output.txt", "r") as txt:
-    content = txt.read()
 
 def decrypt_chunk(chunk, mapping):
     for key, value in mapping.items():
@@ -31,11 +24,13 @@ def decrypt_content(content, data):
 
     return '\n'.join(decrypted_lines)
 
-perm = tool.getperm(content)
+# Path to encrypted message
+content = tool.readeblecontent("output.txt")
+
+perm = tool.getperm(content, tool.getkey("key.json"))
 content_list = list(content)
 tool.unshuffle(content_list, perm)
 shuffled_output = ''.join(content_list)
 
-decrypted_content = decrypt_content(shuffled_output, data)
-
+decrypted_content = decrypt_content(shuffled_output, tool.getkey("key.json"))
 print(decrypted_content)
